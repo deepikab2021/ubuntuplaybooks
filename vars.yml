@@ -1,0 +1,11 @@
+--- # my vars section
+- hosts: all
+  connection: ssh
+  become: true
+
+  vars:
+    pkgname: apache2
+
+  tasks:
+    - name: installing apache2 on webservers
+      action: apt name='{{pkgname}}' state=present

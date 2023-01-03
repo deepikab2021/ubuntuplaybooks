@@ -1,0 +1,12 @@
+--- # creating user with variables section
+- hosts: all
+  become: true
+
+  vars:
+    user: devi
+
+  tasks:
+    - name: creating user {{user}}
+      user:
+        name: '{{user}}'
+

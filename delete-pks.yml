@@ -1,0 +1,11 @@
+--- # delete docker s/w
+- hosts: webservers
+  connection: ssh
+  become: yes
+  user: ansible
+
+  tasks:
+    - name: deleting docker s/w from hosts
+      apt:
+        name: docker.io
+        state: absent

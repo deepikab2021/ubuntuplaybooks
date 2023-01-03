@@ -1,0 +1,12 @@
+--- # my handlers section
+- hosts: all
+  become: yes
+
+  tasks:
+    - name: installing apache2 s/w
+      action: apt name=apache2 state=present
+      notify: start apache2 service
+
+  handlers:
+    - name: start apache2 service
+      action: service name=apache2 state=started

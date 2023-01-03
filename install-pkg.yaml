@@ -1,0 +1,9 @@
+--- # install docker s/w
+- hosts: all
+  become: true
+  connection: ssh
+  user: ansible
+
+  tasks:
+    - name: installing docker s/w in hosts
+      apt: name=docker.io state=latest

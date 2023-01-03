@@ -1,0 +1,30 @@
+--- # my conditional playbook secondway
+- hosts: webservers
+  connection: ssh
+  become: true
+  user: ansible
+
+  tasks:
+    - name: installing httpd package
+      yum:
+        name: httpd
+        state: installed
+      when: ansible_os_family == "RedHat"
+
+    - name: start httpd service
+      service:
+       name=httpd
+       state=started
+      when: ansible_os_family == "RedHat"
+
+
+    - name: installing apache2 package
+      apt:
+        name=apache2
+        state=present
+      when: ansible_os_family == "Debian"
+
+    - name: copy bhoomi.html intlo html folder
+      copy:
+        src: /home/ansible/bhoomi.html
+        dest: /var/www/html

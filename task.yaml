@@ -1,0 +1,10 @@
+--- # my task playbook
+- hosts: webservers
+  connection: ssh
+  become: true
+  user: ansible
+
+  tasks:
+    - name: installing apache2 s/w in webservers
+      action: apt name=apche2 state=present
+      ignore_errors: yes

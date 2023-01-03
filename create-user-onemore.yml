@@ -1,0 +1,8 @@
+--- # creating user
+- hosts: all
+  become: yes
+
+  tasks:
+    - name: creating user in webservers
+      user: name=lucky
+

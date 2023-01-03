@@ -1,0 +1,8 @@
+--- # delete file
+- hosts: webservers
+  become: yes
+
+
+  tasks:
+    - name: deleting a file in webservers
+      file: path=/home/ansible/xyzfile state=absent

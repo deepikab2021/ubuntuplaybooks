@@ -1,0 +1,14 @@
+--- # my conditional playbook
+- hosts: all
+  connection: ssh
+  become: yes
+  user: ansible
+
+  tasks:
+    - name: installing apache for debian
+      command: apt install apache2 -y
+      when: ansible_os_family == "Debian"
+
+    - name: install apache for redhat
+      command: yun install httpd -y
+      when: ansible_os_family == "RedHat"

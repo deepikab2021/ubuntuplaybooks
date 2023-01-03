@@ -1,0 +1,11 @@
+--- # my loops packages (multiple packages intalling)
+- hosts: all
+  connection: ssh
+  become: true
+  user: ansible
+
+  tasks:
+    - name: install packages
+      apt:
+        name: ['git','docker.io','tree','wget','apache2']
+        state: present

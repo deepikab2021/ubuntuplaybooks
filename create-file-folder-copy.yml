@@ -1,0 +1,15 @@
+--- # create file folder & copy
+- hosts: all
+  become: yes
+
+  tasks:
+    - name: create a file with ansible playbook
+      file:
+        path: /tmp/bhoom.txt
+        state: touch
+
+    - name: create a folder with ansible playbook
+      file: path=/tmp/bhoomidir state=directory
+
+    - name: copying a file to host computers
+      copy: src=./abc100 dest=/home/ansible

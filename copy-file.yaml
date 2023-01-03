@@ -1,0 +1,13 @@
+--- # copy file
+- hosts: webservers
+  become: true
+  connection: ssh
+  user: ansible
+
+
+  tasks:
+    - name: copying html file into webservers
+      copy:    
+        src: /home/ansible/bhoomi.html
+        dest: /home/ansible
+        owner: tony

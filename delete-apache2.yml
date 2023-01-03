@@ -1,0 +1,12 @@
+--- # delete apache2
+- hosts: all
+  connection: ssh
+  become: yes
+  user: ansible
+
+
+  tasks:
+    - name: deleting apache2 s/w from hosts
+      apt:
+        name=apache2*
+        state=absent

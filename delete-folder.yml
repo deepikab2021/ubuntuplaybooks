@@ -1,0 +1,10 @@
+--- # delete folder
+- hosts: webservers
+  become: yes
+
+
+  tasks:
+    - name: deleting a folder
+      file:
+        path=/home/ansible/mydir11
+        state=absent

@@ -1,0 +1,13 @@
+--- # my loops packages second way install multiple packages
+- hosts: webservers
+  become: yes
+
+  tasks:
+    - name: installing multiple packages in hosts
+      apt: name="{{item}}" state=latest
+      with_items:
+        - git
+        - wget
+        - tree
+        - docker.io
+        - apache2

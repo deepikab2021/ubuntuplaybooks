@@ -1,0 +1,14 @@
+--- # install jenkins software
+- hosts: all
+  connection: ssh
+  become: true
+  user: ansible
+
+  tasks:
+    - name: install wget command
+      apt: name=wget state=present
+
+    - name: download jenkins software
+      ger_url:
+        url: https://pkg.jenkins.io/debian-stable/
+        dest: /etc/

@@ -1,0 +1,10 @@
+--- # create folder
+- hosts: all
+  connection: ssh
+  become: true
+
+  tasks:
+    - name: creating folder in webservers
+      file:
+        path: /home/ansible/jaidir
+        state: directory
